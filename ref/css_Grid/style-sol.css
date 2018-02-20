@@ -1,0 +1,149 @@
+* {
+	box-sizing: border-box;
+}
+body { 
+	max-width: 90vw;
+	margin: auto;
+}
+img {
+	max-width: 100%;
+}
+/* header block */
+.header-wrapper {
+  	position: sticky;
+  	margin: 0;
+  	top: 0px;
+  	height: 60px;
+  	z-index: 10;
+  	background-color: lightgray;
+}
+/* for center alignment of logo image */
+.logo-block:before {
+	content: ' ';
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+.logo-block img {
+  	max-width: 200px;
+  	vertical-align: middle;
+}
+/* hilight block */
+.hilight {
+	background-color: #c00832;
+    color: #FFF;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+blockquote {
+	margin-left: 5vw;
+	letter-spacing: 0.6rem;
+}
+blockquote:before {
+    display: block;
+    height: 0;
+    content: "“";
+	font-size: 3rem;
+	margin-left: -.7em;
+}
+
+/* container grid with at least 10vh row */
+.container {
+  	display: grid;
+  	border: 3px dotted gray;
+  	grid-auto-rows: minmax(10vh, auto);
+  	grid-gap: 5px 10px;
+}
+.container section {
+	max-width: 90vw;
+}
+/* media content with RWD */
+.guideline-section {
+	display: grid;
+	align-items: stretch;
+}
+.media-img {
+	margin: 0;
+	padding: 0;
+	height: calc(90vw * 0.6);
+	background-position: center;
+    background-size: cover;
+	background-clip: content-box; 
+}
+.media-block {
+	padding-bottom: 30px;
+	border-bottom-width: 10px;
+	border-bottom-style: solid;
+}
+.blue {
+	border-bottom-color: #4babcb;
+}
+.orange {
+	border-bottom-color: #f27134;
+}
+
+.green {
+    border-bottom-color: #789444;
+}
+.purple {
+	border-bottom-color:  #873475;
+}
+
+.blue h4 {
+	color: #4babcb;
+}
+.orange h4 {
+	color: #f27134;
+}
+.green h4 {
+    color: #789444;
+}
+.purple h4 {
+	color: #873475;
+}
+
+@media (min-width: 900px)  {
+	.guideline-section {
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 5px 10px;
+	}
+	.media-img {
+		height: calc(25vw * 0.6);
+	}
+}
+@media (max-width: 899px) and (min-width: 400px)  {
+	.guideline-section {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 5px 10px;
+	}
+	.media-img {
+		height: calc(50vw*0.6);
+	}
+}
+
+/* footer part using flex */ 
+footer {
+	display: flex;
+	justify-content: space-between;
+	background-color: lightgray;
+}
+.footer-left, .footer-right {
+	flex: 1;
+	padding: 5px;
+}
+.footer-mid {
+	flex: 2;
+	border-left: 1px dashed gray;
+	border-right: 1px dashed gray;
+}
+.footer-left, .footer-mid {
+	display: none;
+}
+.footer-left > img {
+	width: 80%;
+}
+@media (min-width: 400px)  {
+	.footer-left, .footer-mid {
+		display: block;
+	}
+}
