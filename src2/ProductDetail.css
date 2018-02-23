@@ -1,0 +1,230 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #444;
+}
+
+h1, p {
+  margin: 0 0 1em 0;
+}
+
+.wrapper {
+  margin: 0 0px;
+  display: grid;
+  /* grid-gap: 5px; */
+}
+
+@media screen and (min-width: 500px) {
+
+  .header{
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky;
+    height: 110px;
+    font-size: 20px;
+    background-color: #003459;
+    grid-column: 1 / -1;
+    clear: both;
+  }
+
+  .path{
+    grid-column: 1/-1;
+    background-color: #EEE;
+    border: 1px solid #c7c5c4;
+    clear: both;
+    float: left;
+    min-height: 40px;
+    max-height: 50px;
+   
+    
+  }
+  .path > h4{
+      color: black;
+      padding-left : 20px;
+      margin: 10px;
+  }
+
+  #inheader{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.1fr;
+    grid-template-rows: 80px 30px;
+  }
+
+  #logo{
+    font-size: 2em;
+    grid-column: span 1;
+    grid-row: span 1;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+ 
+  }
+  #search{
+    padding: 20px;
+    grid-column: 2/9;
+    clear: left;
+  }
+
+  /* Serach + Button */
+  form {
+    outline: 0;
+    float: left;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  form >  .textbox {
+    outline: 0;
+    height: 42px;
+    width: 600px;
+    line-height: 42px;
+    padding: 0 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #212121;
+    border: 0;
+    float: left;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  form  > .textbox:focus {
+    outline: 0;
+    background-color: #FFF;
+  }
+
+  form > .button {
+    outline: 0;
+    background: none;
+    background-color: #00BCD4;
+    float: left;
+    height: 42px;
+    width: 55px;
+    text-align: center;
+    line-height: 42px;
+    border: 0;
+    color: #FFF;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 16px;
+    text-rendering: auto;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color .4s ease;
+    transition: background-color .4s ease;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  form > .button:hover {
+    background-color:#ed6700;
+  }
+  /* end Button */
+
+  #category{
+    padding: 0 20px;
+    grid-column: 2/3;
+  }
+  #promotion{
+    grid-column: 4/5;
+  }
+  #languges{
+    grid-column: 8/9;
+    justify-self: right;
+  }
+  #order{
+    grid-column: 9/10;
+    justify-self: right;
+  }
+  #cart{
+    grid-column: 10/11;
+    justify-self: right;
+  }
+  #acc{
+    grid-column: 11/12;
+    justify-self: right;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    background-color:white;
+    height: 1000px;
+  }
+  .product{
+      color: black;
+  }
+  .calculator {
+    background-color:white;
+    border-left: 1px solid #c7c5c4;
+    color: black;
+  }
+
+  .footer{
+    background-color: #444;
+    grid-column: 1 / -1;
+    clear: both;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    /* grid-template-columns:  1fr 0.5fr; */
+  }
+
+}
+
+/* Dropdown category */
+.dropdown{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: relative;    
+    background-color: #003459;
+    display: inline-block;
+    /* text-decoration: underline; */
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background: #4f81b3;
+  min-width: 150px;
+  margin: 5px;
+  padding: 10px 20px 10px;
+  box-shadow: #444;
+  z-index: auto;
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font: white;
+}
+
+.dropdown-content > a{
+  color: white;
+  text-decoration: none;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+/* End dropdown category */
+
+
+.wrapper > * {
+  /* background-color: #444; */
+  color: #fff;
+  /* border-radius: 0px;
+  padding: 0px; */
+  /* font-size: 150%; */
+  /* needed for the floated layout*/
+  /* margin-bottom: 0px; */
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
