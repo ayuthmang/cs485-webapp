@@ -14,7 +14,7 @@ const items = [
     caption: 'Location: ร้านอาหารญี่ปุ่น Green Canteen'
   },
   {
-    src: 'https://www.picz.in.th/images/2018/04/07/YYXhMg.jpg',
+    src: 'https://www.picz.in.th/images/2018/04/08/YzEOMP.jpg',
     altText: '',
     caption: ''
   },
