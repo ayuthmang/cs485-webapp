@@ -45,7 +45,7 @@ export default class Buy extends Component {
         this.onExiting = this.onExiting.bind(this);
         this.onExited = this.onExited.bind(this);
     }
-    
+
       onExiting() {
         this.animating = true;
       }
@@ -66,11 +66,11 @@ export default class Buy extends Component {
         if (this.animating) return;
         this.setState({ activeIndex: newIndex });
       }
-    
+
     render() {
         const { activeIndex } = this.state;
         const slides = items.map((item) => {
-          
+
         return (
             <CarouselItem
               onExiting={this.onExiting}
@@ -82,9 +82,9 @@ export default class Buy extends Component {
             </CarouselItem>
           );
         });
-    
+
         return (
-          <Carousel
+          <Carousel className="mt-4 mb-4"
             activeIndex={activeIndex}
             next={this.next}
             previous={this.previous}
