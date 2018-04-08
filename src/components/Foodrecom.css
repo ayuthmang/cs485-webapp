@@ -1,0 +1,12 @@
+ .topic{
+   padding-top:  50px;
+   padding-left: 20px;
+} 
+.Content{
+    display:grid;
+    grid-template-columns: 0.1fr auto auto auto auto 0.1fr;
+    grid-column-gap: 20px;
+}
+.whitespace{
+    width: 10px;
+}
