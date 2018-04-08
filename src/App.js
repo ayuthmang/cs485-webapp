@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Banner from './components/Banner';
 import Foodrecom from './components/Foodrecom';
-import FoodHit from './components/FoodHit';
+import PlaceHit from './components/PlaceHit';
 import ResHit from './components/ResHit';
 import Buy from './components/Buy';
 
@@ -20,7 +20,7 @@ class App extends Component {
         {/* Content Here */}
           <Container>
           <Banner/>
-          <FoodHit/>
+          {/* <PlaceHit/> */}
           <ResHit/>
           <Foodrecom/>
           <Buy/>

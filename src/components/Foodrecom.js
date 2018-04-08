@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button,Collapse } from 'reactstrap';
- 
+
 import './Foodrecom.css';
 
 class Example extends Component {
@@ -27,10 +27,10 @@ render(){
     const  {collapse} = this.state;
   return (
     <React.Fragment>
-    <h2 class = "topic"> แนะนำอาหารยอดฮิต</h2>
-    
-    <div class = {"Content"} onClick={this.toggle}> 
-    <section class ="whitespace"></section>
+    <h2 className = "topic"> แนะนำอาหารยอดฮิต</h2>
+
+    <div className = {"Content"} onClick={this.toggle}>
+    <section className ="whitespace"></section>
     <div >
       <Card>
         <CardImg  top width="100%"  style={{ objectFit: "cover", height: 250}} src="https://www.picz.in.th/images/2018/04/07/YY7t6z.jpg"  alt="Card image cap" />
@@ -105,9 +105,9 @@ render(){
         </CardBody>
       </Card>
     </div>
-    <section class ="whitespace"></section>
+    <section className ="whitespace"></section>
     </div>
-    
+
     </React.Fragment>
   );
 };
