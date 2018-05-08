@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import logo from '../images/logo.png';
 import React, { Component } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
 import {
   Container,
   Divider,
@@ -103,34 +104,43 @@ export default class StickyLayout extends Component {
             fixed={menuFixed && 'top'}
             style={menuFixed ? fixedMenuStyle : menuStyle}
           >
-            <Container text>
-              <Menu.Item>
-                <Image size="mini" src={logo} />
-              </Menu.Item>
-              <Menu.Item header>GrabKaow</Menu.Item>
-              <Menu.Item as="a">Menu 1</Menu.Item>
-              <Menu.Item as="a">Menu 2</Menu.Item>
+            <Switch>
+              <Container text>
+                <Menu.Item as={Link} to="/">
+                  <Image size="mini" src={logo} />
+                </Menu.Item>
+                <Menu.Item header as={Link} to="/">
+                  GrabKaow
+                </Menu.Item>
 
-              <Menu.Menu position="right">
-                <Dropdown text="Dropdown" pointing className="link item">
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                      <i className="dropdown icon" />
-                      <span className="text">Submenu</span>
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Menu>
-            </Container>
+                <Menu.Menu position="right">
+                  {/* <Dropdown text="Dropdown" pointing className="link item">
+                    <Dropdown.Menu>
+                      <Dropdown.Item>List Item</Dropdown.Item>
+                      <Dropdown.Item>List Item</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Header>Header Item</Dropdown.Header>
+                      <Dropdown.Item>
+                        <i className="dropdown icon" />
+                        <span className="text">Submenu</span>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>List Item</Dropdown.Item>
+                          <Dropdown.Item>List Item</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown.Item>
+                      <Dropdown.Item>List Item</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown> */}
+
+                  <Menu.Item as={Link} to="/about" component>
+                    About us
+                  </Menu.Item>
+                  <Menu.Item as={Link} to="/login" component>
+                    Login
+                  </Menu.Item>
+                </Menu.Menu>
+              </Container>
+            </Switch>
           </Menu>
         </Visibility>
 
