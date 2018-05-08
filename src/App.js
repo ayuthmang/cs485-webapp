@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Switch, Route } from 'react-router-dom';
 
-import './styles/App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Banner from './components/Banner';
-import Foodrecom from './components/Foodrecom';
-import PlaceHit from './components/PlaceHit';
-import ResHit from './components/ResHit';
-import Buy from './components/Buy';
+
+import 'semantic-ui-css/semantic.min.css';
+import './styles/App.css';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Login from './components/pages/Login';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
-
-        {/* Content Here */}
-          <Container>
-          <Banner/>
-          {/* <PlaceHit/> */}
-          <ResHit/>
-          <Foodrecom/>
-          <Buy/>
-
-        </Container>
-
-        {/* Content Here */}
-
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/login" component={Login} />
+        </Switch>
         <Footer />
       </div>
     );
