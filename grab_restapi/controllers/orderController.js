@@ -66,7 +66,7 @@ exports.getOrderByUserOwner = (req, res) => {
     });
 };
 
-exports.createUser = (req, res) => {
+exports.createOrder = (req, res) => {
   // console.log(req, res);
   const {
     title,
