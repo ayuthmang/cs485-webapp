@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
   // Owner of order
+  title: {
+    type: String,
+    trim: true,
+    required: [true, 'Title is required']
+  },
+  address: {
+    type: String,
+    trim: true,
+    required: [true, 'Address is required']
+  },
   user_owner: {
     type: String,
     trim: true,

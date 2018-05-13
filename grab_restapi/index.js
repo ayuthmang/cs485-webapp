@@ -21,19 +21,27 @@ mongoose.connection.on('error', () => {
   console.log('Database error');
 });
 
+app.use(function(req, res, next) {
+  console.log('Time:', Date.now());
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 // REST for users
 app.use('/api', userRouter);
 app.use('/api', orderRouter);
 
 app.get('*', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.send(
-    JSON.stringify({
-      result: false,
-      status_code: 404,
-      status_message: 'Request not found'
-    })
-  );
+  res.send({
+    result: false,
+    status_code: 404,
+    status_message: 'Request not found'
+  });
 });
 
 app.listen(4000, function() {
