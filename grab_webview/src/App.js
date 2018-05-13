@@ -9,7 +9,7 @@ import './styles/App.css';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Login from './components/pages/Login';
-import Order from './components/Orderfood';
+import Order from './components/pages/Orderfood';
 
 class App extends Component {
   render() {
