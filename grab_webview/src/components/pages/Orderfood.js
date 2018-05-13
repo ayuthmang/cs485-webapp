@@ -8,46 +8,30 @@ import {
   Label,
   Icon
 } from 'semantic-ui-react';
-import Login from './pages/Login';
 
 class Orderfood extends Component {
   componentWillMount() {
     this.setState({ fetchedData: null });
-    const fetchedData = {
-      result: true,
-      status_code: 200,
-      status_message: 'succeed',
-      data: [
-        {
-          user_owner: 'ayuth1',
-          user_grabber: 'boombi1',
-          description: 'รายละเอียดของการซื้อ1',
-          menu: 'กระเพราไข่ดาว',
-          addrees: 'sample address 1',
-          status: 'pending', // pending, approved, reject
-          price: 100,
-          tip: 10,
-          created_time: '2018-05-11 16:53:37.711',
-          updated_time: '2018-05-11 16:53:37.711'
-        },
-        {
-          user_owner: 'ayuth2',
-          user_grabber: 'boombi2',
-          description: 'รายละเอียดของการซื้อ2',
-          menu: 'ข้าวผัดกถ้ง',
-          addrees: 'sample address 2',
-          status: 'approved', // pending, approved, reject
-          price: 100,
-          tip: 10,
-          created_time: '2018-05-11 16:53:37.711',
-          updated_time: '2018-05-11 16:53:37.711'
-        }
-      ]
-    };
-    this.setState({ fetchedData });
+    fetch('http://localhost:4000/api/orders', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({ fetchedData: responseJson });
+        // return responseJson.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   render() {
+    console.log('this.state');
+    console.log(this.state);
     const inlineStyle = {
       modal: {
         marginTop: '0px !important',
@@ -154,7 +138,7 @@ class Orderfood extends Component {
                     </Message>
                   );
                 })
-              : 'You have no orders.'}
+              : 'Nothing in your order(s).'}
           </div>
         </Segment>
         <br />

@@ -65,3 +65,52 @@ exports.getOrderByUserOwner = (req, res) => {
       });
     });
 };
+
+exports.createUser = (req, res) => {
+  // console.log(req, res);
+  const {
+    title,
+    address,
+    user_owner,
+    user_grabber,
+    description,
+    // status,
+    price,
+    tip
+    // created_time,
+    // updated_time
+  } = req.body;
+  let newOrder = new Order({
+    title,
+    address,
+    user_owner,
+    user_grabber,
+    description,
+    // status,
+    price,
+    tip
+    // created_time,
+    // updated_time
+  });
+
+  Order.init().then(() => {
+    // avoid dup by wait until finish building index
+    newOrder
+      .save()
+      .then(order => {
+        res.send({
+          status: true,
+          status_code: 200,
+          status_message: 'Succesfully created order',
+          data: order
+        });
+      })
+      .catch(err => {
+        res.status(500).send({
+          status: false,
+          status_code: 500,
+          status_message: err.message
+        });
+      });
+  });
+};
