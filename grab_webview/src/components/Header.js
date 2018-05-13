@@ -131,7 +131,9 @@ export default class StickyLayout extends Component {
                       <Dropdown.Item>List Item</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown> */}
-
+                  <Menu.Item as={Link} to="/myorders" component>
+                    My Orders
+                  </Menu.Item>
                   <Menu.Item as={Link} to="/about" component>
                     About us
                   </Menu.Item>
