@@ -16,7 +16,7 @@ exports.getOrders = (req, res) => {
     // __v: false,
     // _id: false
   };
-  Order.find({}, orderProjection)
+  Order.find({ status: { $ne: 'reject' } }, orderProjection)
     .then(orders => {
       res.send({
         status: true,
@@ -40,9 +40,12 @@ exports.getOrderByUserOwner = (req, res) => {
     // _id: false,
     // __v: false
   };
-  Order.find({ user_owner: username }, orderProjection)
+  Order.find(
+    { user_owner: username, status: { $ne: 'reject' } },
+    orderProjection
+  )
     .then(orders => {
-      if (orders.legnth > 0) {
+      if (orders.length > 0) {
         res.send({
           status: true,
           status_code: 200,
