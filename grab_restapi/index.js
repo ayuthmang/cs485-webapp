@@ -22,7 +22,6 @@ mongoose.connection.on('error', () => {
 });
 
 app.use(function(req, res, next) {
-  console.log('Time:', Date.now());
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader(
     'Access-Control-Allow-Headers',
