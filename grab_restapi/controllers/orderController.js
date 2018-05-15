@@ -13,8 +13,8 @@ const validator = require('validator');
 // Retrieve and return all Users from the database.
 exports.getOrders = (req, res) => {
   var orderProjection = {
-    __v: false,
-    _id: false
+    // __v: false,
+    // _id: false
   };
   Order.find({}, orderProjection)
     .then(orders => {
@@ -37,8 +37,8 @@ exports.getOrders = (req, res) => {
 exports.getOrderByUserOwner = (req, res) => {
   const { username } = req.params;
   var orderProjection = {
-    _id: false,
-    __v: false
+    // _id: false,
+    // __v: false
   };
   Order.find({ user_owner: username }, orderProjection)
     .then(orders => {
