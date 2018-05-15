@@ -84,6 +84,25 @@ class Orderfood extends Component {
       .catch(err => console.log(err));
   };
 
+  handleButtonRemoveOrderClick = orderId => {
+    fetch('http://localhost:4000/api/order', {
+      method: 'DELETE',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ _id: orderId })
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        if (result.status) {
+          Swal('Done', 'ลบข้อมูลสำเร็จ', 'success');
+        } else {
+          Swal('Error', 'ลบข้อมูลล้มเหลว: ' + result.status_message, 'error');
+        }
+        this.fetchDataAndSetState();
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     const inlineStyle = {
       modal: {
@@ -181,8 +200,15 @@ class Orderfood extends Component {
               ? this.state.fetchedData.data.map((item, count) => {
                   return (
                     <Message color="yellow">
-                      <i class="close icon" />
+                      <i
+                        class="close icon"
+                        onClick={this.handleButtonRemoveOrderClick.bind(
+                          this,
+                          item._id
+                        )}
+                      />
                       <Message.Header>
+                        {console.log(item)}
                         User order : {item.user_owner}
                         <br />
                         Grabberssss : {item.user_grabber}
