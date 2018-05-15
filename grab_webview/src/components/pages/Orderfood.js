@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Segment,
@@ -7,21 +7,29 @@ import {
   Accordion,
   Label,
   Icon
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
+import Swal from 'sweetalert2';
 
 class Orderfood extends Component {
   constructor() {
     super();
-    this.onSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
     this.setState({ fetchedData: null });
-    fetch("http://localhost:4000/api/orders", {
-      method: "GET",
+    // TODO: fetching data from logged user
+    this.setState({
+      inputValues: { user_owner: 'ayuth', user_grabber: 'boombi' }
+    });
+    this.fetchDataAndSetState();
+  }
+
+  fetchDataAndSetState = () => {
+    fetch('http://localhost:4000/api/orders', {
+      method: 'GET',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
@@ -32,33 +40,20 @@ class Orderfood extends Component {
       .catch(error => {
         console.error(error);
       });
-  }
+  };
 
-  handleSubmit(e) {
-    console.log("Adding order to DB");
-    e.preventDefault();
-    var self = this;
+  // For all input field
+  handleInputChanged = event => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      inputValues: { ...this.state.inputValues, [name]: value }
+    });
+    console.log(this.state);
+  };
 
-    fetch("http://localhost:4000/api/order", {
-      method: "POST",
-      data: {
-        username: self.refs.username,
-        foodzone: self.refs.foodzon,
-        bistroname: self.refs.bistroname,
-        menu: self.refs.title,
-        description: self.refs.description,
-        address: self.refs.address
-      }
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(body) {
-        console.log(body);
-      });
-  }
-
-  handleOnclick = (e, titleProps) => {
+  handleShowOrderDetailOnClick = (e, titleProps) => {
     const { index } = titleProps;
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
@@ -66,80 +61,112 @@ class Orderfood extends Component {
     this.setState({ activeIndex: newIndex });
   };
 
+  handleButtonOrderClick = () => {
+    fetch('http://localhost:4000/api/order', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(this.state.inputValues)
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        if (result.status) {
+          Swal('Done', 'บันทึกข้อมูลสำเร็จ', 'success');
+          this.fetchDataAndSetState();
+        } else {
+          Swal(
+            'Error',
+            'บันทึกข้อมูลล้มเหลว: ' + result.status_message,
+            'error'
+          );
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
-    console.log("this.state");
-    console.log(this.state);
     const inlineStyle = {
       modal: {
-        marginTop: "0px !important",
-        marginLeft: "auto",
-        marginRight: "auto",
-        paddingLeft: "20%",
-        paddingRight: "20%"
+        marginTop: '0px !important',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingLeft: '20%',
+        paddingRight: '20%'
       },
       button: {
-        float: "right",
-        alignItems: "center",
-        justifyContent: "center"
+        float: 'right',
+        alignItems: 'center',
+        justifyContent: 'center'
       }
     };
-    const foodzone = [
-      { key: "g", text: "Green Canteen", value: "Green Canteen" },
-      { key: "i", text: "Interzone", value: "Interzone" },
-      { key: "t", text: "Torrung", value: "Torrung" }
-    ];
-    const Bistro = [
-      { key: "res1", text: "Restuaraunt1", value: "Restuaraunt1" },
-      { key: "res2", text: "Restuaraunt2", value: "Restuaraunt2" },
-      { key: "res3", text: "Restuaraunt3", value: "Restuaraunt3" }
-    ];
-    const SimpleUser = [
-      { key: "user1", text: "sample user from DB", value: "DB user" }
-    ];
     const { activeIndex } = this.state;
-    const cnt = 0;
     return (
       <div style={inlineStyle.modal}>
         <Segment secondary color="olive">
           <h1> Order Food Here </h1>
 
-          <Form onSubmit={this.onSubmit}>
-            <Form.Group widths="equal">
-              <Form.Input
-                fluid
-                label="Username"
-                placeholder="Your username..."
-                ref="username"
-              />
-              <Form.Select
-                fluid
-                label="Food Zone"
-                options={foodzone}
-                placeholder="Select Food Zone"
-                ref="foodzone"
-              />
-              <Form.Select
-                fluid
-                label="Bistro Name"
-                options={Bistro}
-                placeholder="Select Bistro"
-                ref="bistroname"
-              />
-            </Form.Group>
+          <Form>
+            {/* <Form.Input
+              fluid
+              label="Username"
+              placeholder="Enter your username here"
+              name="username"
+              onChange={this.handleInputChanged}
+            /> */}
+            <Form.Input
+              fluid
+              label="Title"
+              placeholder="Enter your title here"
+              name="title"
+              onChange={this.handleInputChanged}
+            />
 
-            <Form.Input fluid label="Menu" ref="title" placeholder="Menu..." />
             <Form.TextArea
+              name="description"
               label="Description"
-              ref="description"
-              placeholder="Description..."
+              placeholder="Enter your description..."
+              onChange={this.handleInputChanged}
             />
             <Form.TextArea
+              name="address"
               label="Address"
               placeholder="Enter your addrees to receive.."
-              ref="address"
+              onChange={this.handleInputChanged}
             />
 
-            <Button positive floated="right">
+            <Form.Group widths="equal">
+              <Form.Input
+                labelPosition="right"
+                type="text"
+                placeholder="Enter price here."
+                label="Price"
+                name="price"
+                onChange={this.handleInputChanged}
+              >
+                <Label basic>$</Label>
+                <input />
+                <Label>.00</Label>
+              </Form.Input>
+
+              <Form.Input
+                labelPosition="right"
+                type="text"
+                placeholder="Enter tip here"
+                label="Tip"
+                name="tip"
+                onChange={this.handleInputChanged}
+              >
+                <Label basic>$</Label>
+                <input />
+                <Label>.00</Label>
+              </Form.Input>
+            </Form.Group>
+
+            <Button
+              positive
+              floated="right"
+              onClick={this.handleButtonOrderClick}
+            >
               Oder Now
             </Button>
           </Form>
@@ -149,7 +176,6 @@ class Orderfood extends Component {
 
         <Segment secondary color="orange">
           <h1> Show Order From Database </h1>
-          {/* Repeat */}
           <div>
             {this.state.fetchedData
               ? this.state.fetchedData.data.map((item, count) => {
@@ -167,14 +193,15 @@ class Orderfood extends Component {
                         <Accordion.Title
                           active={activeIndex === count}
                           index={count}
-                          onClick={this.handleOnclick}
+                          onClick={this.handleShowOrderDetailOnClick}
                         >
-                          {" "}
+                          {' '}
                           <Icon name="dropdown" />Show Detail
                         </Accordion.Title>
                         <Accordion.Content active={activeIndex === count}>
                           <div>
                             <p>User Address : {item.address}</p>
+                            <p>Title : {item.title}</p>
                             <p>Description : {item.description}</p>
                             <p>Price : {item.price}</p>
                             <p>Tips : {item.tip}</p>
@@ -185,7 +212,7 @@ class Orderfood extends Component {
                     </Message>
                   );
                 })
-              : "Nothing in your order(s)."}
+              : 'Nothing in your order(s).'}
           </div>
         </Segment>
         <br />
