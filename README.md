@@ -1,6 +1,4 @@
-# cs485-webapp
-For homework
-
+# Simply Application Created with MERN Stack
 
 ## Todo list:
 
