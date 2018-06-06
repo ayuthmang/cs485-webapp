@@ -16,7 +16,7 @@ exports.getOrders = (req, res) => {
     // __v: false,
     // _id: false
   };
-  Order.find({ status: { $ne: 'reject' } }, orderProjection)
+  Order.find({ status: { $ne: 'rejected' } }, orderProjection)
     .then(orders => {
       res.send({
         status: true,
@@ -116,4 +116,36 @@ exports.createOrder = (req, res) => {
         });
       });
   });
+};
+
+// Delete is just set status to 'reject'
+exports.deleteOrder = (req, res) => {
+  const { _id } = req.body;
+  console.log(_id);
+  Order.findOneAndUpdate({ _id: _id }, { $set: { status: 'rejected' } })
+    .then(order => {
+      console.log('order');
+      console.log(order);
+      if (!order) {
+        res.status(404).send({
+          status: false,
+          status_code: 500,
+          status_message: 'Username not found with username: ' + username
+        });
+      }
+      res.send({
+        status: true,
+        status_code: 200,
+        status_message: 'Succesfully mark user as rejected'
+      });
+    })
+    .catch(err => {
+      console.log('err');
+      console.log(err);
+      res.send(500).send({
+        status: false,
+        status_code: 500,
+        status_message: err.errmsg
+      });
+    });
 };

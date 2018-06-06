@@ -7,6 +7,6 @@ router.get('/orders', orderController.getOrders);
 router.get('/order/:username', orderController.getOrderByUserOwner);
 router.post('/order', orderController.createOrder);
 // router.put('/order', orderController.updateorder);
-// router.delete('/order', orderController.deleteorder);
+router.delete('/order', orderController.deleteOrder);
 
 module.exports = router;
