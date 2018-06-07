@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import logo from '../images/logo.png';
-import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import _ from "lodash";
+import logo from "../images/logo.png";
+import React, { Component } from "react";
+import { Switch, Route, Link } from "react-router-dom";
 import {
   Container,
   Divider,
@@ -14,44 +14,44 @@ import {
   Menu,
   Segment,
   Visibility
-} from 'semantic-ui-react';
+} from "semantic-ui-react";
 
 const menuStyle = {
-  border: 'none',
+  border: "none",
   borderRadius: 0,
-  boxShadow: 'none',
-  marginBottom: '1em',
-  marginTop: '0em',
-  transition: 'box-shadow 0.5s ease, padding 0.5s ease'
+  boxShadow: "none",
+  marginBottom: "1em",
+  marginTop: "0em",
+  transition: "box-shadow 0.5s ease, padding 0.5s ease"
 };
 
 const fixedMenuStyle = {
-  backgroundColor: '#fff',
-  border: '1px solid #ddd',
-  boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)'
+  backgroundColor: "#fff",
+  border: "1px solid #ddd",
+  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
 };
 
 const overlayStyle = {
-  float: 'left',
-  margin: '0em 3em 1em 0em'
+  float: "left",
+  margin: "0em 3em 1em 0em"
 };
 
 const fixedOverlayStyle = {
   ...overlayStyle,
-  position: 'fixed',
-  top: '80px',
+  position: "fixed",
+  top: "80px",
   zIndex: 10
 };
 
 const overlayMenuStyle = {
-  position: 'relative',
+  position: "relative",
   left: 0,
-  transition: 'left 0.5s ease'
+  transition: "left 0.5s ease"
 };
 
 const fixedOverlayMenuStyle = {
   ...overlayMenuStyle,
-  left: '800px'
+  left: "800px"
 };
 
 export default class StickyLayout extends Component {
@@ -65,7 +65,7 @@ export default class StickyLayout extends Component {
 
     if (!overlayRect)
       this.setState({
-        overlayRect: _.pick(c.getBoundingClientRect(), 'height', 'width')
+        overlayRect: _.pick(c.getBoundingClientRect(), "height", "width")
       });
   };
 
@@ -101,7 +101,7 @@ export default class StickyLayout extends Component {
         >
           <Menu
             borderless
-            fixed={menuFixed && 'top'}
+            fixed={menuFixed && "top"}
             style={menuFixed ? fixedMenuStyle : menuStyle}
           >
             <Switch>
@@ -114,31 +114,22 @@ export default class StickyLayout extends Component {
                 </Menu.Item>
 
                 <Menu.Menu position="right">
-                  {/* <Dropdown text="Dropdown" pointing className="link item">
-                    <Dropdown.Menu>
-                      <Dropdown.Item>List Item</Dropdown.Item>
-                      <Dropdown.Item>List Item</Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Header>Header Item</Dropdown.Header>
-                      <Dropdown.Item>
-                        <i className="dropdown icon" />
-                        <span className="text">Submenu</span>
-                        <Dropdown.Menu>
-                          <Dropdown.Item>List Item</Dropdown.Item>
-                          <Dropdown.Item>List Item</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown.Item>
-                      <Dropdown.Item>List Item</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown> */}
                   <Menu.Item as={Link} to="/myorders" component>
-                    My Orders
+                    Be Grabber ?
                   </Menu.Item>
                   <Menu.Item as={Link} to="/about" component>
-                    About us
+                    My Orders
                   </Menu.Item>
                   <Menu.Item as={Link} to="/login" component>
-                    Login
+                    My Cart
+                  </Menu.Item>
+                  <Menu.Item>
+                    <Dropdown pointing text="My Account">
+                      <Dropdown.Menu>
+                        <Dropdown.Item>My Profile</Dropdown.Item>
+                        <Dropdown.Item>Log out</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </Menu.Item>
                 </Menu.Menu>
               </Container>
