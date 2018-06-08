@@ -7,15 +7,18 @@ class CarouselComponent extends Component {
       <Carousel autoPlay interval={1000} infiniteLoop showThumbs={false}>
         <div>
           <img src="https://www.picz.in.th/images/2018/04/07/YYXI49.jpg" />
-          <p className="legend">Legend</p>
         </div>
         <div>
           <img src="https://www.picz.in.th/images/2018/04/07/YYXVxQ.jpg" />
-          <p className="legend">Legend</p>
         </div>
         <div>
-          <img src="https://www.picz.in.th/images/2018/04/07/YYXhMg.jpg" />
-          <p className="legend">Legend</p>
+          <img src="https://www.picz.in.th/images/2018/06/09/4zT5kZ.jpg" />
+        </div>
+        <div>
+          <img src="https://www.picz.in.th/images/2018/06/09/4z38jQ.jpg" />
+        </div>
+        <div>
+          <img src="https://www.picz.in.th/images/2018/06/09/4z3SeV.jpg" />
         </div>
       </Carousel>
     );
