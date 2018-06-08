@@ -1,7 +1,60 @@
 import React, { Component } from "react";
-import { Button, Segment, Form, Message } from "semantic-ui-react";
+import { Button, Segment, Form, Message, Sidebar } from "semantic-ui-react";
 
 class Orderfood extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userOrder: [
+        {
+          name: "Toey",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 1
+        },
+        {
+          name: "Bi",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 2
+        },
+        {
+          name: "Bay",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 3
+        },
+        {
+          name: "Mint",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 4
+        },
+        {
+          name: "GGEZ",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 5
+        },
+
+        {
+          name: "KAK",
+          description:
+            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+          number: 6
+        }
+      ]
+    };
+  }
+
+  have_received(i) {
+    const newState = this.state.userOrder.slice();
+    if (newState.indexOf(i) > -1) {
+      newState.splice(newState.indexOf(i), 1);
+      this.setState({ userOrder: newState });
+    }
+  }
+
   render() {
     const inlineStyle = {
       modal: {
@@ -38,19 +91,21 @@ class Orderfood extends Component {
         <Segment secondary color="orange">
           <h1> My Order </h1>
           {/* Repeat */}
+
           <div>
-            {order.map(i => {
+            {this.state.userOrder.map(i => {
               return (
                 <Message color="yellow">
                   <Message.Header>
-                    ( Oder Number : {i} ) User : Sample User
+                    ( Oder Number : {i.number} ) User : {i.name}
                   </Message.Header>
-                  <p>
-                    {" "}
-                    Food Zone: Sample zone, Bistro Name: Sample menu, Menu:
-                    Sample menu{" "}
-                  </p>
-                  <Button color="green">Received</Button>
+                  <Message.Content>{i.description}</Message.Content>
+                  <Button
+                    color="green"
+                    onClick={this.have_received.bind(this, i)}
+                  >
+                    Received
+                  </Button>
                 </Message>
               );
             })}
