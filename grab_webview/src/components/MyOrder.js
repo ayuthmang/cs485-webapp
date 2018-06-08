@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Button, Segment, Form, Message, Sidebar } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Button, Segment, Form, Message, Sidebar } from 'semantic-ui-react';
 
 class Orderfood extends Component {
   constructor(props) {
@@ -7,40 +7,40 @@ class Orderfood extends Component {
     this.state = {
       userOrder: [
         {
-          name: "Toey",
+          name: 'Toey',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 1
         },
         {
-          name: "Bi",
+          name: 'Bi',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 2
         },
         {
-          name: "Bay",
+          name: 'Bay',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 3
         },
         {
-          name: "Mint",
+          name: 'Mint',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 4
         },
         {
-          name: "GGEZ",
+          name: 'GGEZ',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 5
         },
 
         {
-          name: "KAK",
+          name: 'KAK',
           description:
-            "Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu",
+            'Food Zone: Sample zone, Bistro Name: Sample menu, Menu: Sample menu',
           number: 6
         }
       ]
@@ -58,31 +58,31 @@ class Orderfood extends Component {
   render() {
     const inlineStyle = {
       modal: {
-        marginTop: "0px !important",
-        marginLeft: "auto",
-        marginRight: "auto",
-        paddingLeft: "20%",
-        paddingRight: "20%",
-        paddingTop: "5%"
+        marginTop: '0px !important',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingLeft: '20%',
+        paddingRight: '20%',
+        paddingTop: '5%'
       },
       button: {
-        float: "right",
-        alignItems: "center",
-        justifyContent: "center"
+        float: 'right',
+        alignItems: 'center',
+        justifyContent: 'center'
       }
     };
     const foodzone = [
-      { key: "g", text: "Green Canteen", value: "Green Canteen" },
-      { key: "i", text: "Interzone", value: "Interzone" },
-      { key: "t", text: "Torrung", value: "Torrung" }
+      { key: 'g', text: 'Green Canteen', value: 'Green Canteen' },
+      { key: 'i', text: 'Interzone', value: 'Interzone' },
+      { key: 't', text: 'Torrung', value: 'Torrung' }
     ];
     const Bistro = [
-      { key: "res1", text: "Restuaraunt1", value: "Restuaraunt1" },
-      { key: "res2", text: "Restuaraunt2", value: "Restuaraunt2" },
-      { key: "res3", text: "Restuaraunt3", value: "Restuaraunt3" }
+      { key: 'res1', text: 'Restuaraunt1', value: 'Restuaraunt1' },
+      { key: 'res2', text: 'Restuaraunt2', value: 'Restuaraunt2' },
+      { key: 'res3', text: 'Restuaraunt3', value: 'Restuaraunt3' }
     ];
     const SimpleUser = [
-      { key: "user1", text: "sample user from DB", value: "DB user" }
+      { key: 'user1', text: 'sample user from DB', value: 'DB user' }
     ];
     const order = [1, 2, 3, 4, 5];
 

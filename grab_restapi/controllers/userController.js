@@ -38,8 +38,6 @@ exports.getUsersByUsername = (req, res) => {
   User.find({ username: username }, userProjection)
     .then(user => {
       if (user.legnth === 1) {
-        console.log('user');
-        console.log(user);
         res.send({
           status: true,
           status_code: 200,
@@ -64,21 +62,18 @@ exports.getUsersByUsername = (req, res) => {
 };
 
 exports.createUser = (req, res) => {
-  // console.log(req, res);
-  const { username, password, email } = req.body;
-
+  const params = { ...req.body };
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (err, hash) => {
+    bcrypt.hash(params.password, salt, (err, hash) => {
       if (err)
         res
           .status(400)
           .json({ errors: { global: 'Failed to register user: ' + err } });
 
       let newUser = new User({
-        username: username,
+        ...params,
         password: hash,
-        email: email,
-        status: 'pending'
+        status: 'approved'
       });
       // console.log(hash);
 
@@ -98,7 +93,7 @@ exports.createUser = (req, res) => {
             res.status(500).send({
               status: false,
               status_code: 500,
-              status_message: err.errmsg
+              status_message: err.message
             });
           });
       });

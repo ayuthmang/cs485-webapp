@@ -5,8 +5,10 @@ import {
   Grid,
   Header,
   Message,
-  Segment
+  Segment,
+  Menu
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert2';
 
 export default class Login extends Component {
@@ -107,7 +109,10 @@ export default class Login extends Component {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href="#">Sign Up</a>
+            New to us?&nbsp;&nbsp;&nbsp;{' '}
+            <Menu.Item as={Link} to="/signup">
+              <Button primary>Sign up</Button>
+            </Menu.Item>
           </Message>
         </Grid.Column>
       </Grid>

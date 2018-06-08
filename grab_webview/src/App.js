@@ -16,6 +16,7 @@ import HomeG from './components/HomeG';
 import HomeC from './components/HomeC';
 import MyOrder from './components/MyOrder';
 import MyProfile from './components/MyProfile';
+import SignupPage from './components/pages/Signup';
 
 class App extends Component {
   constructor() {
@@ -50,6 +51,7 @@ class App extends Component {
             <Route path="/myorder" component={MyOrder} />
             <Route path="/mycart" component={MyCart} />
             <Route path="/myprofile" component={MyProfile} />
+            <Route path="/signup" component={SignupPage} />
           </Switch>
         </Container>
         <Footer />

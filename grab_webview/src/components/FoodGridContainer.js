@@ -1,18 +1,18 @@
-import React from "react";
-import { Rating, Card, Icon, Grid, Image, GridColumn } from "semantic-ui-react";
+import React from 'react';
+import { Rating, Card, Icon, Grid, Image, GridColumn } from 'semantic-ui-react';
 
 const inlineStyle = {
   modal: {
-    marginTop: "0px !important",
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingTop: "5px"
+    marginTop: '0px !important',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingTop: '5px'
   }
 };
 
 const FoodGridContainer = () => (
   <div>
-    <h1 style={{ paddingLeft: "10%", paddingTop: "30px" }}> อาหารยอดนิยม </h1>
+    <h1 style={{ paddingLeft: '10%', paddingTop: '30px' }}> อาหารยอดนิยม </h1>
     <Grid container columns={4} style={inlineStyle.modal}>
       <Grid.Column>
         <Card>
