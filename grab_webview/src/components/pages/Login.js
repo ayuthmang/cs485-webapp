@@ -1,52 +1,116 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
-import LoginForm from "./forms/LoginForm";
+import React, { Component } from 'react';
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Message,
+  Segment
+} from 'semantic-ui-react';
+import swal from 'sweetalert2';
 
-class LoginPage extends React.Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { authResponse: props.isAuthenticated };
+    this.state = {
+      formLoading: false,
+      inputValues: {}
+    };
+    console.log(this.props.parentHandler);
   }
-
-  submit = data => {
-    console.log(data);
-
-    //verify user with the server
-    return fetch("/api/signup", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: new Headers({ "Content-Type": "application/json" })
-    }).then(resp => {
-      const json = resp.json();
-      if (resp.status >= 200 && resp.status < 300) {
-        json.then(user => {
-          this.props.setAuth(user);
-          this.setState({ authResponse: true });
-        });
-      }
-      return json.then(err => {
-        throw err;
-      });
+  handleInputChanged = event => {
+    const target = event.target;
+    const targetId = target.id;
+    const targetValue =
+      target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      inputValues: { ...this.state.inputValues, [targetId]: targetValue }
     });
+  };
 
-    //Fake Return
-    //return new Promise((res, rej)=>{ rej({errors:{global:"eeoeo"}}); });
+  handleButtonLoginClick = () => {
+    if (!this.state.inputValues.username || !this.state.inputValues.password) {
+      swal('', 'กรุณากรอกข้อมูลให้ครบ', 'error');
+    } else {
+      this.ajaxLogin();
+    }
+  };
+
+  ajaxLogin = () => {
+    this.setState({ formLoading: true }, () => {
+      fetch('http://localhost:4000/api/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.state.inputValues)
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          if (res.status) {
+            this.props.rootHandler.setAuthend(true);
+            this.setState({ formLoading: false });
+          } else {
+            swal('', res.status_message, 'error');
+            this.setState({ formLoading: false });
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          this.setState({ formLoading: false });
+        });
+    });
   };
 
   render() {
-    const { authResponse } = this.state;
-    if (!authResponse) {
-      return <LoginForm submit={this.submit} />;
-    }
-    // else
-    return <Redirect to={{ pathname: "/secretPage" }} />;
+    return (
+      <Grid
+        textAlign="center"
+        style={{ height: '100%' }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h2" color="teal" textAlign="center">
+            Log-in to your account
+          </Header>
+          <Form size="large" loading={this.state.formLoading}>
+            <Segment stacked>
+              <Form.Input
+                // error={!this.state.inputValues.username}
+                onChange={this.handleInputChanged}
+                id="username"
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="Username"
+              />
+              <Form.Input
+                // error={!this.state.inputValues.password}
+                onChange={this.handleInputChanged}
+                id="password"
+                fluid
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
+                type="password"
+              />
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                onClick={this.handleButtonLoginClick}
+              >
+                Login
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            New to us? <a href="#">Sign Up</a>
+          </Message>
+        </Grid.Column>
+      </Grid>
+    );
   }
 }
-
-LoginPage.propTypes = {
-  setAuth: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
-};
-
-export default LoginPage;

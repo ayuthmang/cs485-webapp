@@ -55,6 +55,10 @@ const fixedOverlayMenuStyle = {
 };
 
 export default class StickyLayout extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
   state = {
     menuFixed: false,
     overlayFixed: false
@@ -146,7 +150,7 @@ export default class StickyLayout extends Component {
           </Menu>
         </Visibility>
 
-        <Container text>
+        {/* <Container text>
           <Visibility
             offset={80}
             once={false}
@@ -158,7 +162,7 @@ export default class StickyLayout extends Component {
             ref={this.handleOverlayRef}
             style={overlayFixed ? fixedOverlayStyle : overlayStyle}
           />
-        </Container>
+        </Container> */}
       </div>
     );
   }
