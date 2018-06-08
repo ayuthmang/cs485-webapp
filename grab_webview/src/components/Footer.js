@@ -6,7 +6,9 @@ import {
   Grid,
   Header,
   List,
-  Segment
+  Segment,
+  Image,
+  Button
 } from 'semantic-ui-react';
 
 export default class Footer extends Component {
@@ -21,18 +23,14 @@ export default class Footer extends Component {
 
         <Segment
           inverted
-          style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
+          style={{ margin: '3em 0em 0em', padding: '2em 0em' }}
           vertical
         >
           <Container textAlign="center">
             <Grid columns={1} divided stackable inverted>
               <Grid.Row>
                 <Grid.Column>
-                  <Header inverted as="h4" content="Footer Header" />
-                  <p>
-                    Extra space for a call to action inside the footer that
-                    could help re-engage users.
-                  </p>
+                  <Header inverted as="h4" content="GrabKaow" />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -51,8 +49,20 @@ export default class Footer extends Component {
                 Privacy Policy
               </List.Item>
             </List>
+            <br />
+            <br />
+            <Button circular color="facebook" icon="facebook" />{' '}
+            <Button circular color="twitter" icon="twitter" />{' '}
+            <Button circular color="linkedin" icon="linkedin" />{' '}
+            <Button circular color="google plus" icon="google plus" />
           </Container>
         </Segment>
+        <Grid style={{ background: '#0BAC5C', height: '50px' }}>
+          {/* <Image
+            style={{ width: '100%' }}
+            src="https://www.img.in.th/images/e9310e99718d99361bc5dc212f99285f.jpg"
+          /> */}
+        </Grid>
       </div>
     );
   }
