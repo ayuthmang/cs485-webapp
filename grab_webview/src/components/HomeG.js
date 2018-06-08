@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Container } from "semantic-ui-react";
-import { Grid, Image, GridColumn, GridRow, Divider } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Container } from 'semantic-ui-react';
+import { Grid, Image, GridColumn, GridRow, Divider } from 'semantic-ui-react';
 import {
   Sidebar,
   Segment,
@@ -12,7 +12,7 @@ import {
   SidebarPushable,
   Label,
   Card
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 class HomeG extends Component {
   constructor(props) {
@@ -21,32 +21,32 @@ class HomeG extends Component {
       itemArray: [],
       data: [
         {
-          description: "buy at here1",
+          description: 'buy at here1',
           price: 90,
           tip: 10
         },
         {
-          description: "buy at here2",
+          description: 'buy at here2',
           price: 50,
           tip: 10
         },
         {
-          description: "buy at here3",
+          description: 'buy at here3',
           price: 290,
           tip: 10
         },
         {
-          description: "buy at here4",
+          description: 'buy at here4',
           price: 900,
           tip: 10
         },
         {
-          description: "buy at here5",
+          description: 'buy at here5',
           price: 920,
           tip: 10
         },
         {
-          description: "buy at here6",
+          description: 'buy at here6',
           price: 920,
           tip: 10
         }
@@ -60,6 +60,9 @@ class HomeG extends Component {
   confirm_Cart = () => {
     const data2 = this.state.itemArray;
     this.setState({ data_Submit: data2 });
+    if (this.state.open == false) {
+      this.state.open = true;
+    }
   };
 
   handleDismiss = item => {
@@ -96,12 +99,12 @@ class HomeG extends Component {
         <Container>
           <Grid>
             <Grid.Row
-              divided={"vertically"}
+              divided={'vertically'}
               relaxed
               style={{
-                paddingBottom: "100px",
-                paddingTop: "10%",
-                height: "500px"
+                paddingBottom: '100px',
+                paddingTop: '5%',
+                height: '500px'
               }}
             >
               <Grid.Column width={8}>
@@ -114,21 +117,22 @@ class HomeG extends Component {
                     direction="top"
                     visible={true}
                   >
-                    <div style={{ paddingBottom: "50px" }}>
+                    <div style={{ paddingBottom: '50px' }}>
                       {this.state.data.map(i => {
                         return (
                           <Message info>
                             <Message.Header>
-                              {" "}
-                              {i.description}{" "}
+                              {' '}
+                              {i.description}{' '}
                               <Button
                                 color="orange"
-                                floated={"right"}
+                                floated={'right'}
                                 onClick={this.createOrder_Cart.bind(this, i)}
+                                disabled={this.state.open}
                               >
-                                {" "}
-                                <Icon name="check" /> Select{" "}
-                              </Button>{" "}
+                                {' '}
+                                <Icon name="check" /> Select{' '}
+                              </Button>{' '}
                             </Message.Header>
                             <Message.Content>{i.price} </Message.Content>
                           </Message>
@@ -149,7 +153,7 @@ class HomeG extends Component {
                     direction="top"
                     visible={true}
                   >
-                    <div style={{ paddingBottom: "50px" }}>
+                    <div style={{ paddingBottom: '50px' }}>
                       {this.state.itemArray.map(item => {
                         return (
                           <div>
@@ -165,8 +169,8 @@ class HomeG extends Component {
                   </Sidebar>
                 </Sidebar.Pushable>
                 <Button floated="right" color="green" onClick={this.confirm}>
-                  {" "}
-                  Confirm{" "}
+                  {' '}
+                  Confirm{' '}
                 </Button>
               </Grid.Column>
             </Grid.Row>
@@ -174,9 +178,9 @@ class HomeG extends Component {
             <Grid.Row
               relaxed
               style={{
-                paddingBottom: "50px",
-                paddingTop: "50px",
-                height: "300px"
+                paddingBottom: '50px',
+                paddingTop: '50px',
+                height: '300px'
               }}
               columns={3}
             >
@@ -184,18 +188,18 @@ class HomeG extends Component {
                 as="h1"
                 color="red"
                 textAlign="left"
-                style={{ paddingRight: "30px" }}
+                style={{ paddingRight: '30px' }}
               >
                 Your Order Mission
               </Header>
-              <Grid.Row style={{ width: "60%" }}>
+              <Grid.Row style={{ width: '60%' }}>
                 <Sidebar.Pushable>
                   <Sidebar
                     animation="scale down"
                     direction="top"
                     visible={true}
                   >
-                    <div style={{ paddingBottom: "50px" }}>
+                    <div style={{ paddingBottom: '50px' }}>
                       {this.state.data_Submit.map(i => {
                         return (
                           <Message header={i.description} content={i.price} />
