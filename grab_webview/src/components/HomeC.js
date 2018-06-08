@@ -5,7 +5,6 @@ import CarouselComponent from "./CarouselComponent";
 import Orderfood from "./Orderfood";
 import FoodGridContainer from "./FoodGridContainer";
 import Food2GridContainer from "./Food2GridContainer";
-import MyOrder from "./MyOrder";
 
 class HomeC extends Component {
   render() {
@@ -15,7 +14,6 @@ class HomeC extends Component {
         <FoodGridContainer />
         <Food2GridContainer />
         <Orderfood />
-        <MyOrder />
       </div>
     );
   }
