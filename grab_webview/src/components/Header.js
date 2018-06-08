@@ -114,19 +114,21 @@ export default class StickyLayout extends Component {
                 </Menu.Item>
 
                 <Menu.Menu position="right">
-                  <Menu.Item as={Link} to="/myorders" component>
+                  <Menu.Item as={Link} to="/homeg" component>
                     Be Grabber ?
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/about" component>
+                  <Menu.Item as={Link} to="/myorder" component>
                     My Orders
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/login" component>
+                  <Menu.Item as={Link} to="/mycart" component>
                     My Cart
                   </Menu.Item>
                   <Menu.Item>
                     <Dropdown pointing text="My Account">
                       <Dropdown.Menu>
-                        <Dropdown.Item>My Profile</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/myprofile">
+                          My Profile
+                        </Dropdown.Item>
                         <Dropdown.Item>Log out</Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
