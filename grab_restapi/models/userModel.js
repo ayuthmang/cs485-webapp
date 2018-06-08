@@ -40,3 +40,33 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = (module.exports = mongoose.model('Users', UserSchema, 'Users'));
+module.exports.getUserByUsername = username => {
+  var userProjection = {
+    __v: false,
+    _id: false
+  };
+  return User.find({ username: username }, userProjection)
+    .then(user => {
+      if (user.length === 1) {
+        return {
+          status: true,
+          status_code: 200,
+          status_message: 'succeed',
+          data: user
+        };
+      } else {
+        return {
+          status: false,
+          status_code: 200,
+          status_message: 'Username not found with username: ' + username
+        };
+      }
+    })
+    .catch(err => {
+      return {
+        status: false,
+        status_code: 500,
+        status_message: err.errmsg
+      };
+    });
+};
