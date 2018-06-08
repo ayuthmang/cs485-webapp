@@ -29,7 +29,7 @@ const OrderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['approved', 'pending', 'reject'],
+    enum: ['succeed', 'approved', 'pending', 'reject'],
     default: 'pending'
   },
   price: {
