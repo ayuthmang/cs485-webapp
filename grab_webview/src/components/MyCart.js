@@ -91,8 +91,8 @@ class MyCart extends Component {
     return (
       <div
         style={{
-          paddingLeft: '30%',
-          paddingRight: '30%',
+          paddingLeft: '20%',
+          paddingRight: '20%',
           justifyContent: 'center'
         }}
       >

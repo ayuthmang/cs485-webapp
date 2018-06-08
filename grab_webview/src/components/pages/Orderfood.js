@@ -11,10 +11,6 @@ import {
 import Swal from 'sweetalert2';
 
 class Orderfood extends Component {
-  constructor() {
-    super();
-  }
-
   componentWillMount() {
     this.setState({ fetchedData: null });
     // TODO: fetching data from logged user

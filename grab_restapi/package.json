@@ -15,7 +15,6 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "start:db":
-      "docker run -it --rm -v $PWD/mongodb/data:/data/db -p 27017:27017 mongo"
+    "start:db": "docker run -it --rm -v $PWD/mongodb/data:/data/db -p 27017:27017 mongo"
   }
 }

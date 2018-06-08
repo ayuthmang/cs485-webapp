@@ -10,6 +10,7 @@ const config = require('./config/database');
 const userModel = require('./models/userModel');
 var userRouter = require('./routes/userRouter');
 var orderRouter = require('./routes/orderRouter');
+var authenRouter = require('./routes/authenRouter');
 
 userModel.init();
 mongoose.connect(config.database);
@@ -34,6 +35,7 @@ app.use(function(req, res, next) {
 // REST for users
 app.use('/api', userRouter);
 app.use('/api', orderRouter);
+app.use('/api', authenRouter);
 
 app.get('*', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
