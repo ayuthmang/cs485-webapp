@@ -4,15 +4,9 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import {
   Container,
-  Divider,
   Dropdown,
-  Grid,
-  Header,
-  Icon,
   Image,
-  List,
   Menu,
-  Segment,
   Visibility
 } from 'semantic-ui-react';
 
@@ -98,50 +92,51 @@ export default class StickyLayout extends Component {
         {/* Attaching the top menu is a simple operation, we only switch `fixed` prop and add another style if it has
             gone beyond the scope of visibility
           */}
-        <Visibility
+        {/* <Visibility
           onBottomPassed={this.stickTopMenu}
           onBottomVisible={this.unStickTopMenu}
           once={false}
+        > */}
+        <Menu
+          borderless
+          fixed={menuFixed && 'top'}
+          style={menuFixed ? fixedMenuStyle : menuStyle}
         >
-          <Menu
-            borderless
-            fixed={menuFixed && 'top'}
-            style={menuFixed ? fixedMenuStyle : menuStyle}
-          >
-            <Switch>
-              <Container text>
-                <Menu.Item as={Link} to="/">
-                  <Image size="mini" src={logo} />
-                </Menu.Item>
-                <Menu.Item header as={Link} to="/">
-                  GrabKaow
-                </Menu.Item>
+          <Container>
+            <Menu.Item as={Link} to="/">
+              <Image size="mini" src={logo} />
+            </Menu.Item>
+            <Menu.Item header as={Link} to="/">
+              GrabKaow
+            </Menu.Item>
 
-                <Menu.Menu position="right">
-                  <Menu.Item as={Link} to="/homeg" component>
-                    Be Grabber ?
-                  </Menu.Item>
-                  <Menu.Item as={Link} to="/myorder" component>
-                    My Orders
-                  </Menu.Item>
-                  <Menu.Item as={Link} to="/mycart" component>
-                    My Cart
-                  </Menu.Item>
-                  <Menu.Item>
-                    <Dropdown pointing text="My Account">
-                      <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to="/myprofile">
-                          My Profile
-                        </Dropdown.Item>
-                        <Dropdown.Item>Log out</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Menu.Item>
-                </Menu.Menu>
-              </Container>
-            </Switch>
-          </Menu>
-        </Visibility>
+            <Menu.Menu position="right">
+              <Menu.Item as={Link} to="/homeg" component>
+                Be Grabber ?
+              </Menu.Item>
+              <Menu.Item as={Link} to="/myorder" component>
+                My Orders
+              </Menu.Item>
+              <Menu.Item as={Link} to="/mycart" component>
+                My Cart
+              </Menu.Item>
+              <Menu.Item>
+                <Dropdown pointing text="My Account">
+                  <Dropdown.Menu>
+                    <Dropdown.Item as={Link} to="/myprofile">
+                      My Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item>Log out</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Menu.Item>
+            </Menu.Menu>
+            <Menu.Item as={Link} to="/login">
+              Login
+            </Menu.Item>
+          </Container>
+        </Menu>
+        {/* </Visibility> */}
 
         {/* <Container text>
           <Visibility
