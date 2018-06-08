@@ -17,7 +17,6 @@ class MyCart extends Component {
         style={{
           paddingLeft: "30%",
           paddingRight: "30%",
-          paddingTop: "5px",
           justifyContent: "center"
         }}
       >
@@ -47,7 +46,7 @@ class MyCart extends Component {
                     placeholder="1"
                     compact
                     selection
-                    // options={getOptions(3, "")}
+                    options={[1, 2, 3, 4]}
                   />
                 </Table.Cell>
                 <Table.Cell>200</Table.Cell>
