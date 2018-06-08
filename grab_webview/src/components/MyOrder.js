@@ -50,9 +50,7 @@ class Orderfood extends Component {
                     Food Zone: Sample zone, Bistro Name: Sample menu, Menu:
                     Sample menu{" "}
                   </p>
-                  <Button color="green" fluid="true">
-                    Received
-                  </Button>
+                  <Button color="green">Received</Button>
                 </Message>
               );
             })}
