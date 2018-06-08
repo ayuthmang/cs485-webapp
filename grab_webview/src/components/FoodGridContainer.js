@@ -16,16 +16,14 @@ const FoodGridContainer = () => (
     <Grid container columns={4} style={inlineStyle.modal}>
       <Grid.Column>
         <Card>
-          <Image src="https://www.picz.in.th/images/2018/04/07/YYSAyR.jpg" />
+          <Image src="https://www.picz.in.th/images/2018/06/09/4z1x12.jpg" />
           <Card.Content>
-            <Card.Header>Matthew</Card.Header>
-            <Rating maxRating={5} defaultRating={3} icon="star" size="huge" />
+            <Card.Header>ก๋วยเตี๋ยวหมูน้ำตก</Card.Header>
+            <Rating maxRating={5} defaultRating={5} icon="star" size="huge" />
             <Card.Meta>
-              <span className="date">Joined in 2015</span>
+              <span className="date">ราคา : 35 บาท</span>
             </Card.Meta>
-            <Card.Description>
-              Matthew is a musician living in Nashville.
-            </Card.Description>
+            <Card.Description>ร้าน : ก๋วยเตี๋ยวเว็บแอพ บร2</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <a>
@@ -37,16 +35,14 @@ const FoodGridContainer = () => (
       </Grid.Column>
       <Grid.Column>
         <Card>
-          <Image src="https://www.picz.in.th/images/2018/04/07/YYSAyR.jpg" />
+          <Image src="https://www.picz.in.th/images/2018/06/09/4z16Ou.jpg" />
           <Card.Content>
-            <Card.Header>Matthew</Card.Header>
-            <Rating maxRating={5} defaultRating={3} icon="star" size="huge" />
+            <Card.Header>ข้าวขาหมู</Card.Header>
+            <Rating maxRating={5} defaultRating={4} icon="star" size="huge" />
             <Card.Meta>
-              <span className="date">Joined in 2015</span>
+              <span className="date">ราคา : 40 บาท</span>
             </Card.Meta>
-            <Card.Description>
-              Matthew is a musician living in Nashville.
-            </Card.Description>
+            <Card.Description>ร้าน : ครัวคุณเบ โต้รุ่ง</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <a>
@@ -58,16 +54,14 @@ const FoodGridContainer = () => (
       </Grid.Column>
       <Grid.Column>
         <Card>
-          <Image src="https://www.picz.in.th/images/2018/04/07/YYSAyR.jpg" />
+          <Image src="https://www.picz.in.th/images/2018/06/09/4z1sA8.jpg" />
           <Card.Content>
-            <Card.Header>Matthew</Card.Header>
+            <Card.Header>บะหมี่หมูแดง</Card.Header>
             <Rating maxRating={5} defaultRating={3} icon="star" size="huge" />
             <Card.Meta>
-              <span className="date">Joined in 2015</span>
+              <span className="date">ราคา : 30 บาท</span>
             </Card.Meta>
-            <Card.Description>
-              Matthew is a musician living in Nashville.
-            </Card.Description>
+            <Card.Description>ร้าน : บะหมี่นะจ๊ะ</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <a>
@@ -79,16 +73,14 @@ const FoodGridContainer = () => (
       </Grid.Column>
       <Grid.Column>
         <Card>
-          <Image src="https://www.picz.in.th/images/2018/04/07/YYSAyR.jpg" />
+          <Image src="https://www.picz.in.th/images/2018/06/09/4zKU0t.jpg" />
           <Card.Content>
-            <Card.Header>Matthew</Card.Header>
+            <Card.Header>ข้าวผัดทะเล</Card.Header>
             <Rating maxRating={5} defaultRating={3} icon="star" size="huge" />
             <Card.Meta>
-              <span className="date">Joined in 2015</span>
+              <span className="date">ราคา : 50 บาท</span>
             </Card.Meta>
-            <Card.Description>
-              Matthew is a musician living in Nashville.
-            </Card.Description>
+            <Card.Description>ร้าน : อยากกินอะไรก็สั่งมา</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <a>
