@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Popup, Button, Header, Image, Modal } from "semantic-ui-react";
-import SigninForm from "./forms/SigninForm";
+import React, { Component } from 'react';
+import { Popup, Button, Header, Image, Modal } from 'semantic-ui-react';
+import SigninForm from './pages/forms/SigninForm';
 
 class CreateAccount extends Component {
   state = { open: false };
@@ -12,15 +12,15 @@ class CreateAccount extends Component {
     const { open, dimmer } = this.state;
     const inlineStyle = {
       modal: {
-        marginTop: "0px !important",
-        marginLeft: "auto",
-        marginRight: "auto"
+        marginTop: '0px !important',
+        marginLeft: 'auto',
+        marginRight: 'auto'
       }
     };
 
     return (
       <React.Fragment>
-        <Button onClick={this.show("blurring")}>Sing Up</Button>
+        <Button onClick={this.show('blurring')}>Sing Up</Button>
         <Modal
           dimmer={dimmer}
           open={open}
