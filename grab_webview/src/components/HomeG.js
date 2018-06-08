@@ -100,8 +100,8 @@ class HomeG extends Component {
               relaxed
               style={{
                 paddingBottom: "100px",
-                paddingTop: "50px",
-                height: "600px"
+                paddingTop: "10%",
+                height: "500px"
               }}
             >
               <Grid.Column width={8}>
@@ -184,7 +184,7 @@ class HomeG extends Component {
                 as="h1"
                 color="red"
                 textAlign="left"
-                style={{ padding: "30px" }}
+                style={{ paddingRight: "30px" }}
               >
                 Your Order Mission
               </Header>
