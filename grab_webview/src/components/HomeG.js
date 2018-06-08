@@ -127,7 +127,7 @@ class HomeG extends Component {
                                 onClick={this.createOrder_Cart.bind(this, i)}
                               >
                                 {" "}
-                                Select{" "}
+                                <Icon name="check" /> Select{" "}
                               </Button>{" "}
                             </Message.Header>
                             <Message.Content>{i.price} </Message.Content>
