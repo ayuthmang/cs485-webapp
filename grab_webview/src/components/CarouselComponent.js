@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Carousel } from "react-responsive-carousel";
+import React, { Component } from 'react';
+import { Carousel } from 'react-responsive-carousel';
 
 class CarouselComponent extends Component {
   render() {
     return (
-      <Carousel autoPlay interval={1000} infiniteLoop showThumbs={false}>
+      <Carousel autoPlay interval={4000} infiniteLoop showThumbs={false}>
         <div>
           <img src="https://www.picz.in.th/images/2018/04/07/YYXI49.jpg" />
         </div>
