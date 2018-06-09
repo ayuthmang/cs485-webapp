@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import { Button, Segment, Form, Message, Sidebar } from 'semantic-ui-react';
 
 class Orderfood extends Component {
+  componentDidMount() {
+    // this.state.userOrder = [];
+    const profile = JSON.parse(localStorage.getItem('profile'));
+    if (profile) {
+      fetch(`http://localhost:4000/api/order/${profile.username}`, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(responseJson => {
+          this.setState({
+            userOrder: responseJson.data
+          });
+          console.log(responseJson);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -93,16 +116,25 @@ class Orderfood extends Component {
           {/* Repeat */}
 
           <div>
-            {this.state.userOrder.map(i => {
+            {this.state.userOrder.map(item => {
               return (
                 <Message color="yellow">
                   <Message.Header>
-                    ( Oder Number : {i.number} ) User : {i.name}
+                    Order Id : {item._id} <br />
+                    User Owner : {item.user_owner} <br />
+                    User Grabber : {item.user_grabber} <br />
+                    Title : {item.title} <br />
+                    Description : {item.description} <br />
+                    Address : {item.address} <br />
+                    Price : {item.price} <br />
+                    Tips : {item.tip} <br />
                   </Message.Header>
-                  <Message.Content>{i.description}</Message.Content>
+                  <Message.Content>
+                    <br />
+                  </Message.Content>
                   <Button
                     color="green"
-                    onClick={this.have_received.bind(this, i)}
+                    onClick={this.have_received.bind(this, item)}
                   >
                     Received
                   </Button>

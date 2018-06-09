@@ -10,6 +10,7 @@ import './styles/App.css';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Login from './components/pages/Login';
+import Logout from './components/pages/Logout';
 import Order from './components/pages/Orderfood';
 import MyCart from './components/MyCart';
 import HomeG from './components/HomeG';
@@ -46,6 +47,7 @@ class App extends Component {
                 <Login {...props} rootHandler={this.rootHandler} />
               )}
             />
+            <Route path="/logout" component={Logout} />
             <Route path="/myorders" component={Order} />
             <Route path="/homeG" component={HomeG} />
             <Route path="/myorder" component={MyOrder} />

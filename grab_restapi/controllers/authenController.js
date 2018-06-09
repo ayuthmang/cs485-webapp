@@ -20,7 +20,8 @@ exports.login = (req, res) => {
         res.send({
           status: true,
           status_code: 200,
-          status_message: 'Login succeed'
+          status_message: 'Login succeed',
+          data: data.data[0]
         });
       } else {
         res.send({

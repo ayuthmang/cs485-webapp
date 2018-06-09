@@ -126,7 +126,9 @@ export default class StickyLayout extends Component {
                     <Dropdown.Item as={Link} to="/myprofile">
                       My Profile
                     </Dropdown.Item>
-                    <Dropdown.Item>Log out</Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/logout">
+                      Log out
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Menu.Item>

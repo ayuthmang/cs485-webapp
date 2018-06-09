@@ -54,6 +54,8 @@ export default class Login extends Component {
           if (res.status) {
             this.props.rootHandler.setAuthend(true);
             this.setState({ formLoading: false });
+            swal('', 'Login สำเร็จ', 'success');
+            localStorage.setItem('profile', JSON.stringify(res.data));
           } else {
             swal('', res.status_message, 'error');
             this.setState({ formLoading: false });
