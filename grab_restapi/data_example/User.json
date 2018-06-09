@@ -1,83 +1,101 @@
 [
     {
         "username" : "ayuth",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "ayuth@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "Ayuth",
+        "lastname": "Mangmesap"
     },
     {
         "username" : "padchaya",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "padchaya@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "approved"
+        "status" : "approved",
+        "firstname": "Padchaya",
+        "lastname": "Srisingchai"
     },
     {
         "username" : "kansuda",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "kansuda@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "succeed"
+        "status" : "succeed",
+        "firstname": "Kansuda",
+        "lastname": "Wayon"
     },
     {
         "username" : "kanlayanee",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "kanlayanee@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "Kanlayanee",
+        "lastname": "Dulkaseam"
     },
     {
         "username" : "kittaporn",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "kittiporn@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "LookTao",
+        "lastname": "Eiei"
     },
     {
         "username" : "boombi",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "boombi@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "BoomBoom",
+        "lastname": "BiBi"
     },
     {
         "username" : "ajanyao",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "ajanyao@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "reject"
+        "status" : "reject",
+        "firstname": "Ajarn",
+        "lastname": "Yaowadee"
     },
     {
         "username" : "kenken",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "kenken@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "Nitipad",
+        "lastname": "Wuttisasiwat"
     },
     {
         "username" : "card",
-        "passwordd" : "1234",
+        "password" : "1234",
         "email" : "card@gmail.com",
         "avartar_url" : "https://www.picz.in.th/images/2018/06/09/44ETGP.gif",
         "created_time" : "",
         "updated_time" : "",
-        "status" : "pending"
+        "status" : "approved",
+        "firstname": "Pee Card",
+        "lastname": "Naja"
     }
 ]
