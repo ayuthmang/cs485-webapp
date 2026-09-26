@@ -1,4 +1,4 @@
-import React, { Component, Redirect } from 'react';
+import React, { Component } from 'react';
 import { Form, Container, Button } from 'semantic-ui-react';
 import swal from 'sweetalert2';
 import validator from 'validator';
